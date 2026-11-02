@@ -13,7 +13,8 @@ public class Weapon : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Instantiate(Bullet, ShotPos.transform.position, transform.rotation);
+            GameObject b = Instantiate(Bullet, ShotPos.position, Quaternion.identity);
+            b.GetComponent<Bullet>().Launch(Mathf.Sign(transform.root.localScale.x));
         }
     }
 }
